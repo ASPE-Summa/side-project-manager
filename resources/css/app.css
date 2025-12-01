@@ -34,3 +34,8 @@
     --color-dark-visual: #4C3743;
     --color-fg: #D3C6AA;
 }
+
+
+nav > a{
+    text-decoration: underline;
+}

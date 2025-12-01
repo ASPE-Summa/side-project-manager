@@ -5,6 +5,11 @@
             <img src="{{asset('side_project_logo.png')}}" alt="logo" class="h-8 w-8"/>
             <span class="font-bold text-lg">Side Project Tracker</span>
         </div>
+        <nav>
+            <a href="{{ route('projects.index') }}" class="mr-4 hover:text-success">Projects</a>
+            <a href="{{ route('ideas.index') }}" class="mr-4 hover:text-success">Ideas</a>
+        </nav>
     </div>
+
 </div>
 </header>
