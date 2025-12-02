@@ -27,9 +27,9 @@
     <div>
         <label class="block text-sm font-medium text-success">Status</label>
         <select name="status" class="mt-1 w-full rounded border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" required>
-            <option value="">Select status</option>
+            <option  class="bg-dark-3" disabled value="" {{isset($project) ? 'selected' : ''}}>Select status</option>
             @foreach ($statuses as $status)
-                <option value="{{ $status->name }}" @selected(old('status', $project->status?->name ?? '') === $status->name)>{{ ucwords(strtolower(str_replace('_', ' ', $status->name))) }}</option>
+                <option class="bg-dark-4" value="{{ $status->name }}" @selected(old('status', $project->status?->name ?? '') === $status->name)>{{ ucwords(strtolower(str_replace('_', ' ', $status->name))) }}</option>
             @endforeach
         </select>
         @error('status')

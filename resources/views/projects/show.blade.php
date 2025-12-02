@@ -33,11 +33,11 @@
             </div>
             <div>
                 <dt class="text-sm text-success">Start date</dt>
-                <dd class="text-base font-medium">{{ $project->start_date }}</dd>
+                <dd class="text-base font-medium">{{ $project->start_date->format('d-m-Y') }}</dd>
             </div>
             <div>
                 <dt class="text-sm text-success">Last updated</dt>
-                <dd class="text-base font-medium">{{ $project->last_updated }}</dd>
+                <dd class="text-base font-medium">{{ $project->last_updated->format('d-m-Y') }}</dd>
             </div>
         </dl>
     </div>
@@ -49,12 +49,12 @@
         @else
             <ul class="space-y-2">
                 @foreach ($project->ideas as $idea)
-                    <li class="rounded border border-gray-200 bg-white px-4 py-3 shadow-sm flex items-center justify-between">
+                    <li class="rounded border border-grey-1 bg-dark-4 text-fg px-4 py-3 shadow-sm flex items-center justify-between">
                         <div>
-                            <p class="font-medium">{{ $idea->description }}</p>
-                            <p class="text-sm text-gray-500">Added on {{ $idea->date_added }}</p>
+                            <p class="font-medium text-success">{{ $idea->description }}</p>
+                            <p class="text-sm text-grey-0">Added on {{ $idea->date_added }}</p>
                         </div>
-                        <a href="{{ route('ideas.show', $idea) }}" class="text-blue-600 hover:underline">View</a>
+                        <a href="{{ route('ideas.show', $idea) }}" class="button bg-dark-blue p-1 rounded text-primary hover:bg-primary hover:text-dark-blue"><i class="fa fa-eye"></i></a>
                     </li>
                 @endforeach
             </ul>

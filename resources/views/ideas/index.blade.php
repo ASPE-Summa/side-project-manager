@@ -21,8 +21,8 @@
                     <tr class="border-t border-grey-1">
                         <td class="px-4 py-3">{{ $idea->description }}</td>
                         <td class="px-4 py-3">{{ $idea->project?->name ?? '—' }}</td>
-                        <td class="px-4 py-3">{{ $idea->date_added }}</td>
-                        <td class="px-4 py-3 text-right space-x-2">
+                        <td class="px-4 py-3">{{ $idea->date_added->format('d-m-Y') }}</td>
+                        <td class="px-4 py-3 text-right space-x">
                             <a href="{{ route('ideas.show', $idea) }}" class="button bg-dark-blue p-1 rounded text-primary hover:bg-primary hover:text-dark-blue"><i class="fa fa-eye"></i></a>
                             <a href="{{ route('ideas.edit', $idea) }}" class="button bg-dark-yellow p-1 rounded text-warning hover:bg-warning hover:text-dark-yellow"><i class="fa fa-file-pen"></i></a>
                             <form action="{{ route('ideas.destroy', $idea) }}" method="POST" class="inline">

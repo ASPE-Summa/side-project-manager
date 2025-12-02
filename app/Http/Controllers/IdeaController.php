@@ -38,7 +38,7 @@ class IdeaController extends Controller
     {
         $validated = $request->validate([
             'description' => ['required', 'string', 'max:255'],
-            'project_id' => ['required', 'exists:projects,id'],
+            'project_id' => ['nullable', 'exists:projects,id'],
             'date_added' => ['required', 'date'],
         ]);
 
