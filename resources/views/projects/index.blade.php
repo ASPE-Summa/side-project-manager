@@ -21,7 +21,7 @@
                 @forelse ($projects as $project)
                     <tr class="border-t border-grey-1">
                         <td class="px-4 py-3">{{ $project->name }}</td>
-                        <td class="px-4 py-3">{{ $project->status?->name }}</td>
+                        <td class="px-4 py-3"><x-status-badge :status="$project->status"/></td>
                         <td class="px-4 py-3">{{ $project->start_date->format('d-m-Y') }}</td>
                         <td class="px-4 py-3">{{ $project->last_updated->format('d-m-Y') }}</td>
                         <td class="px-4 py-3 text-right space-x">

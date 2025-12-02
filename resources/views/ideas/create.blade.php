@@ -5,7 +5,7 @@
         <h1 class="text-2xl font-semibold">New Idea</h1>
     </div>
 
-    <form action="{{ route('ideas.store') }}" method="POST" class="rounded border border-gray-200 bg-white p-4 shadow-sm">
+    <form action="{{ route('ideas.store') }}" method="POST" class="rounded border border-grey-1 bg-dark-5 p-4 shadow-sm text-fg">
         @include('ideas._form', ['idea' => new \App\Models\Idea()])
     </form>
 @endsection

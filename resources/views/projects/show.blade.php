@@ -3,39 +3,40 @@
 @section('content')
     <div class="mb-4 flex items-center justify-between">
         <div>
-            <p class="text-sm text-gray-500">Project status: {{ $project->status?->name }}</p>
+            <x-status-badge :status="$project->status"/>
             <h1 class="text-2xl font-semibold">{{ $project->name }}</h1>
         </div>
         <div class="space-x-2">
-            <a href="{{ route('projects.edit', $project) }}" class="rounded border border-gray-300 px-3 py-1.5 text-sm text-gray-700 hover:bg-gray-50">Edit</a>
-            <form action="{{ route('projects.destroy', $project) }}" method="POST" class="inline">
+            <a href="{{route('projects.index', $project)}}" class="button bg-grey-3 p-1 rounded text-purple hover:bg-purple hover:text-dark-purple"><i class="fa fa-arrow-left"></i></a>
+            <a href="{{ route('projects.edit', $project) }}" class="button bg-dark-yellow p-1 rounded text-warning hover:bg-warning hover:text-dark-yellow"><i class="fa fa-file-pen"></i> </a>
+            <form action="{{ route('projects.destroy', $project) }}" method="POST" class="inline p1 mx-1">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="rounded border border-red-200 px-3 py-1.5 text-sm text-red-700 hover:bg-red-50" onclick="return confirm('Delete this project?')">Delete</button>
+                <a type="submit" class="button bg-dark-red p-1 rounded text-sm text-danger hover:bg-danger hover:text-dark-red" onclick="return confirm('Delete this project?')"><i class="fa fa-trash"></i></a>
             </form>
         </div>
     </div>
 
-    <div class="rounded border border-gray-200 bg-white p-4 shadow-sm">
+    <div class="rounded border border-grey-1 bg-dark-5 p-4 shadow-sm">
         <dl class="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
-                <dt class="text-sm text-gray-500">Description</dt>
+                <dt class="text-sm text-success">Description</dt>
                 <dd class="text-base font-medium">{{ $project->description }}</dd>
             </div>
             <div>
-                <dt class="text-sm text-gray-500">Repository</dt>
+                <dt class="text-sm text-success">Repository</dt>
                 <dd class="text-base font-medium">
-                    <a href="{{ $project->repository }}" class="text-blue-600 hover:underline" target="_blank" rel="noopener">
+                    <a href="{{ $project->repository }}" class="text-primary hover:underline" target="_blank" rel="noopener">
                         {{ $project->repository }}
                     </a>
                 </dd>
             </div>
             <div>
-                <dt class="text-sm text-gray-500">Start date</dt>
+                <dt class="text-sm text-success">Start date</dt>
                 <dd class="text-base font-medium">{{ $project->start_date }}</dd>
             </div>
             <div>
-                <dt class="text-sm text-gray-500">Last updated</dt>
+                <dt class="text-sm text-success">Last updated</dt>
                 <dd class="text-base font-medium">{{ $project->last_updated }}</dd>
             </div>
         </dl>
