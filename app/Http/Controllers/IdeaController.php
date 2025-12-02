@@ -16,7 +16,7 @@ class IdeaController extends Controller
      */
     public function index(): View
     {
-        $ideas = Idea::with('project')->orderByDesc('date_added')->get();
+        $ideas = Idea::with('project')->orderBy('implemented')->orderByDesc('date_added')->get();
 
         return view('ideas.index', compact('ideas'));
     }
@@ -40,8 +40,9 @@ class IdeaController extends Controller
             'description' => ['required', 'string', 'max:255'],
             'project_id' => ['nullable', 'exists:projects,id'],
             'date_added' => ['required', 'date'],
+            'implemented' => ['nullable', 'boolean']
         ]);
-
+        $validated['implemented'] = $request->has('implemented');
         Idea::create($validated);
 
         return redirect()->route('ideas.index')->with('status', 'Idea added.');
@@ -74,10 +75,11 @@ class IdeaController extends Controller
     {
         $validated = $request->validate([
             'description' => ['required', 'string', 'max:255'],
-            'project_id' => ['required', 'exists:projects,id'],
+            'project_id' => ['nullable', 'exists:projects,id'],
             'date_added' => ['required', 'date'],
+            'implemented' => ['nullable', 'boolean'],
         ]);
-
+        $validated['implemented'] = $request->has('implemented');
         $idea->update($validated);
 
         return redirect()->route('ideas.index')->with('status', 'Idea updated.');

@@ -18,7 +18,7 @@
             </thead>
             <tbody>
                 @forelse ($ideas as $idea)
-                    <tr class="border-t border-grey-1">
+                    <tr class="border-t border-grey-1 {{$idea->implemented ? 'bg-dark-2' : 'bg-dark-4'}}">
                         <td class="px-4 py-3">{{ $idea->description }}</td>
                         <td class="px-4 py-3">{{ $idea->project?->name ?? '—' }}</td>
                         <td class="px-4 py-3">{{ $idea->date_added->format('d-m-Y') }}</td>

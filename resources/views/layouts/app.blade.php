@@ -18,7 +18,7 @@
     <x-header />
     <main class="container mx-auto px-4 py-6 flex-1 w-full max-w-5xl mt-15" >
         @if (session('status'))
-            <div class="mb-4 rounded border border-green-200 bg-green-50 px-4 py-2 text-sm text-green-900">
+            <div class="mb-4 rounded border border-success bg-dark-green px-4 py-2 text-sm text-success">
                 {{ session('status') }}
             </div>
         @endif

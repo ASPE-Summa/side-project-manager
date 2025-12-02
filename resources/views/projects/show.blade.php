@@ -49,7 +49,7 @@
         @else
             <ul class="space-y-2">
                 @foreach ($project->ideas as $idea)
-                    <li class="rounded border border-grey-1 bg-dark-4 text-fg px-4 py-3 shadow-sm flex items-center justify-between">
+                    <li class="rounded border border-grey-1 {{$idea->implemented? 'bg-dark-green' : 'bg-dark-4' }} text-fg px-4 py-3 shadow-sm flex items-center justify-between">
                         <div>
                             <p class="font-medium text-success">{{ $idea->description }}</p>
                             <p class="text-sm text-grey-0">Added on {{ $idea->date_added }}</p>

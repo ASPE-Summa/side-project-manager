@@ -10,7 +10,7 @@ use App\Enum\ProjectStatus;
     </span>
 @elseif($status == ProjectStatus::IN_PROGRESS)
     <span
-        class="inline-flex items-center rounded-md bg-dark-blue px-2 py-1 text-xs font-medium text-blue inset-ring inset-ring-green-500/20">
+        class="inline-flex items-center rounded-md bg-dark-blue px-2 py-1 text-xs font-medium text-primary inset-ring inset-ring-green-500/20">
         IN_PROGRESS
     </span>
 @elseif($status == ProjectStatus::DROPPED)

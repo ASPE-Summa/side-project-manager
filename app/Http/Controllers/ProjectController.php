@@ -69,7 +69,7 @@ class ProjectController extends Controller
     {
         return $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'description' => ['required', 'string', 'max:255'],
+            'description' => ['required', 'string'],
             'repository' => ['required', 'url'],
             'start_date' => ['required', 'date'],
             'last_updated' => ['required', 'date'],

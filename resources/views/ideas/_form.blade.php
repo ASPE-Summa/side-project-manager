@@ -20,7 +20,16 @@
         <label class="block text-sm font-medium text-success">Date added</label>
         <input type="date" name="date_added" value="{{ old('date_added', optional($idea->date_added)->format('Y-m-d') ?? now()->toDateString()) }}" class="mt-1 w-full rounded border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" required>
         @error('date_added')
-            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+            <p class="mt-1 text-sm text-danger">{{ $message }}</p>
+        @enderror
+    </div>
+    <div class="flex items-center">
+        <label for="implemented" class=" select-none block text-sm font-medium text-success">Implemented</label>
+        <input type="checkbox" name="implemented"   value="1"
+               {{ $idea->implemented ? 'checked="checked"' : '' }} class="ml-5 accent-success w-4 h-4 rounded border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+
+        @error('date_added')
+        <p class="mt-1 text-sm text-danger">{{ $message }}</p>
         @enderror
     </div>
 </div>

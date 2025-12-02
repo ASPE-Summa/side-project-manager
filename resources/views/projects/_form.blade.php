@@ -4,15 +4,15 @@
         <label class="block text-sm font-medium text-success">Name</label>
         <input type="text" name="name" value="{{ old('name', $project->name ?? '') }}" class="mt-1 w-full rounded border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" required>
         @error('name')
-            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+            <p class="mt-1 text-sm text-danger">{{ $message }}</p>
         @enderror
     </div>
 
     <div class="sm:col-span-2">
         <label class="block text-sm font-medium text-success">Description</label>
-        <textarea name="description" rows="3" class="mt-1 w-full rounded border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" required>{{ old('description', $project->description ?? '') }}</textarea>
+        <textarea name="description" rows="3" class="mt-1 w-full rounded border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 field-sizing-content"   required>{{ old('description', $project->description ?? '') }}</textarea>
         @error('description')
-            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+            <p class="mt-1 text-sm text-danger">{{ $message }}</p>
         @enderror
     </div>
 
@@ -20,7 +20,7 @@
         <label class="block text-sm font-medium text-success">Repository URL</label>
         <input type="url" name="repository" value="{{ old('repository', $project->repository ?? '') }}" class="mt-1 w-full rounded border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" required>
         @error('repository')
-            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+            <p class="mt-1 text-sm text-danger">{{ $message }}</p>
         @enderror
     </div>
 
@@ -33,7 +33,7 @@
             @endforeach
         </select>
         @error('status')
-            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+            <p class="mt-1 text-sm text-danger">{{ $message }}</p>
         @enderror
     </div>
 
@@ -41,7 +41,7 @@
         <label class="block text-sm font-medium text-success">Start date</label>
         <input type="date" name="start_date" value="{{ isset($project, $project->start_date) ? $project->start_date->format('Y-m-d') : now()->toDateString() }}" class="mt-1 w-full rounded border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" required>
         @error('start_date')
-            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+            <p class="mt-1 text-sm text-danger">{{ $message }}</p>
         @enderror
     </div>
 
@@ -49,7 +49,7 @@
         <label class="block text-sm font-medium text-success">Last updated</label>
         <input type="date" name="last_updated" value="{{ isset($project, $project->last_updated) ? $project->last_updated->format('Y-m-d') : now()->toDateString() }}" class="mt-1 w-full rounded border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" required>
         @error('last_updated')
-            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+            <p class="mt-1 text-sm text-danger">{{ $message }}</p>
         @enderror
     </div>
 </div>

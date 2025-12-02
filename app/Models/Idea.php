@@ -12,10 +12,12 @@ class Idea extends Model
         'description',
         'project_id',
         'date_added',
+        'implemented',
     ];
 
     protected $casts = [
         'date_added' => 'date',
+        'implemented' => 'boolean',
     ];
 
     public $timestamps = false;
